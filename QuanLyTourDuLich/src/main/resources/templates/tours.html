@@ -24,8 +24,8 @@
                     <td th:text="${tour.tenTour}"></td>
                     <td th:text="${tour.giaTour}"></td>
                     <td th:text="${tour.moTa}"></td>
-                    <td th:text="${#dates.format(tour.thoiGianKhoiHanh, 'yyyy-MM-dd HH:mm')}"></td>
-                    <td th:text="${#dates.format(tour.thoiGianKetThuc, 'yyyy-MM-dd HH:mm')}"></td>
+                    <td th:text="${tour.formattedThoiGianKhoiHanh}"></td>
+                    <td th:text="${tour.formattedThoiGianKetThuc}"></td>
                 </tr>
             </tbody>
         </table>

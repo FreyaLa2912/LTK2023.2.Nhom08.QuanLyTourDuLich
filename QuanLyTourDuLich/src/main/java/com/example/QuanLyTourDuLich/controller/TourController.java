@@ -1,5 +1,7 @@
 package com.example.QuanLyTourDuLich.controller;
 
+import com.example.QuanLyTourDuLich.model.Tour;
+
 // import org.springframework.stereotype.Controller;
 // import org.springframework.ui.Model;
 // import org.springframework.web.bind.annotation.GetMapping;
@@ -57,6 +59,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import java.util.List;
 
 @Controller
 public class TourController {
@@ -65,7 +68,8 @@ public class TourController {
 
     @GetMapping("/tours")
     public String listTours(Model model) {
-        model.addAttribute("tours", tourService.getAllTours());
+        List<Tour> tours = tourService.getAllTours();
+        model.addAttribute("tours", tours);
         return "tours";
     }
 }
