@@ -32,3 +32,4 @@ public class Tour {
     @Column(name = "ThoiGianKetThuc")
     private LocalDateTime thoiGianKetThuc;
 }
+// aloalo
