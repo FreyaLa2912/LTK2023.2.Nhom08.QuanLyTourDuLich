@@ -33,3 +33,171 @@
     border-radius: 50%;    /* Làm cho ảnh thành hình tròn */
     object-fit: cover;     /* Đảm bảo ảnh không bị méo khi cắt */
 }
+.infoimg {
+    display: flex;               /* Sử dụng Flexbox */
+    flex-direction: column;      /* Sắp xếp theo cột */
+    justify-content: center;     /* Căn giữa theo chiều dọc */
+    align-items: center;         /* Căn giữa theo chiều ngang */
+    height: 100%;                /* Đảm bảo chiều cao của phần tử chứa là đủ */
+}
+.infoimg img {
+    width: 100%;          /* Điều chỉnh kích thước ảnh theo yêu cầu */
+    height: 80%;         /* Chiều cao phải bằng chiều rộng để tạo thành hình tròn */
+      /* Làm cho ảnh thành hình tròn */
+    object-fit: cover;     /* Đảm bảo ảnh không bị méo khi cắt */
+}
+#map {
+    height: 100vh;
+    width: 100%;
+  }
+  
+  h2 {
+    text-align: center;
+    padding: 20px;
+    color: #333;
+}
+
+/* Danh sách Tour */
+
+
+.tour-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tour-item {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+.tour-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tour-card-body {
+    padding: 15px;
+}
+
+.tour-card-body h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.tour-card-body p {
+    color: #555;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.tour-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+}
+
+.tour-card-footer button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tour-card-footer button:hover {
+    background-color: #218838;
+}
+
+
+.tour-item:hover {
+    background-color: #f0f0f0;
+}
+
+.tour-item h4 {
+    margin: 0;
+}
+
+.tour-item button {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.booking-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.booking-card {
+    width: 300px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.booking-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.booking-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.booking-card-body {
+    padding: 15px;
+}
+
+.booking-card-body h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.booking-card-body p {
+    color: #555;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.booking-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+}
+
+.booking-card-footer button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.booking-card-footer button:hover {
+    background-color: #218838;
+}

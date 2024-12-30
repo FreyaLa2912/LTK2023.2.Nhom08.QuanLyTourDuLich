@@ -15,4 +15,24 @@ public class LoginController {
     public String loginSubmit(){
         return "/pages/landing_page";
     }
+        @RequestMapping("/tour")
+        public String tour() {
+            return "/pages/tour"; 
+    }
+    @RequestMapping("/booking")
+    public String booking() {
+        return "/pages/booking"; 
+    }
+        @RequestMapping("/khachhang")
+        public String khachhang() {
+            return "/pages/khachhang"; 
+    }
+    @RequestMapping("/nhanvien")
+    public String nhanvien() {
+        return "/pages/nhanvien"; 
+    }
+    @RequestMapping("/diadiem")
+    public String diadiem() {
+        return "/pages/diadiem"; 
+    }
 }
