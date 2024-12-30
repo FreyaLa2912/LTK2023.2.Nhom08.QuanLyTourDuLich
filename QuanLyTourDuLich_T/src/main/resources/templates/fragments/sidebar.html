@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    
+<div id="sidebar" class='active' th:fragment="sidebar"><!--sidebar-->
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+            <div class="profile-info">
+                <h1>Tour 2D</h1>
+                <div class="useravatar">
+                    <img src="/images/test.jpg" alt="" srcset="">
+                </div>
+                <h2>La Bảo Trân</h2>
+                <h3>Admin</h3>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+
+
+                <li class='sidebar-title'>Main Menu</li>
+
+
+
+                <li class="sidebar-item active ">
+                    <a href="home" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Bảng điều khiển</span>
+                    </a>
+
+                </li>
+
+
+
+
+                <li class="sidebar-item  active">
+                    <a href="tour" class='sidebar-link'>
+                        <i data-feather="triangle" width="20"></i>
+                        <span>Tour du lịch</span>
+                    </a>
+
+                  
+                </li>
+
+
+
+
+                <li class="sidebar-item  active">
+                    <a href="diadiem" class='sidebar-link'>
+                        <i data-feather="map" width="20"></i>
+                        <span>Địa điểm</span>
+                    </a>
+
+              
+
+                </li>
+                <li class="sidebar-item  active">
+                    <a href="booking" class='sidebar-link'>
+                        <i data-feather="book" width="20"></i>
+                        <span>Booking</span>
+                    </a>
+
+
+                </li> <li class="sidebar-item  active">
+                    <a href="nhanvien" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i>
+                        <span>Nhân viên</span>
+                    </a>
+
+                  
+
+                </li> <li class="sidebar-item active">
+                    <a href="khachhang" class='sidebar-link'>
+                        <i data-feather="users" width="20"></i>
+                        <span>Khách hàng</span>
+                    </a>
+
+                 
+
+                </li>
+            </li> <li class="sidebar-item active">
+                <a href="#" class='sidebar-link'>
+                    <i data-feather="star" width="20"></i>
+                    <span>Đánh giá</span>
+                </a>
+
+              
+
+            </li>
+
+
+
+                <li class='sidebar-title'>Tùy chỉnh</li>
+
+
+
+                <li class="sidebar-item  active">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="settings" width="20"></i>
+                        <span>Cài đặt</span>
+                    </a>
+
+                 
+
+                </li>
+
+
+
+
+                <li class="sidebar-item  active">
+                    <a href="login" class='sidebar-link'>
+                        <i data-feather="log-out" width="20"></i>
+                        <span>Đăng xuất</span>
+                    </a>
+
+
+                </li>
+
+
+
+
+            </ul>
+        </div>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>
+</body>
+</html>
