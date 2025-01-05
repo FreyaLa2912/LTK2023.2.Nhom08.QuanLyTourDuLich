@@ -1,75 +1,58 @@
 package com.example.QuanLyTourDuLich.controller;
 
-import com.example.QuanLyTourDuLich.model.Tour;
-
-// import org.springframework.stereotype.Controller;
-// import org.springframework.ui.Model;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import java.util.ArrayList;
-// import java.util.List;
-
-// @Controller
-// public class TourController {
-
-//     @GetMapping("/tours")
-//     public String getTours(Model model) {
-//         // Dữ liệu mẫu
-//         List<Tour> tours = new ArrayList<>();
-//         tours.add(new Tour("Tham Quan TP HCM", 500000, "2024-01-10", "2024-01-10"));
-//         tours.add(new Tour("Khám Phá Miền Tây", 700000, "2024-01-15", "2024-01-15"));
-        
-//         model.addAttribute("tours", tours);
-//         return "layout";
-//     }
-
-//     // Class mẫu (sẽ thay bằng Entity thực tế)
-//     public static class Tour {
-//         private String tenTour;
-//         private int giaTour;
-//         private String thoiGianKhoiHanh;
-//         private String thoiGianKetThuc;
-
-//         public Tour(String tenTour, int giaTour, String thoiGianKhoiHanh, String thoiGianKetThuc) {
-//             this.tenTour = tenTour;
-//             this.giaTour = giaTour;
-//             this.thoiGianKhoiHanh = thoiGianKhoiHanh;
-//             this.thoiGianKetThuc = thoiGianKetThuc;
-//         }
-
-//         public String getTenTour() {
-//             return tenTour;
-//         }
-
-//         public int getGiaTour() {
-//             return giaTour;
-//         }
-
-//         public String getThoiGianKhoiHanh() {
-//             return thoiGianKhoiHanh;
-//         }
-
-//         public String getThoiGianKetThuc() {
-//             return thoiGianKetThuc;
-//         }
-//     }
-// }
-
+import com.example.QuanLyTourDuLich.entity.Tour;
 import com.example.QuanLyTourDuLich.service.TourService;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/api/tours")
 public class TourController {
+
     @Autowired
     private TourService tourService;
 
-    @GetMapping("/tours")
-    public String listTours(Model model) {
+    @GetMapping
+    public ResponseEntity<List<Tour>> getAllTours() {
         List<Tour> tours = tourService.getAllTours();
-        model.addAttribute("tours", tours);
-        return "tours";
+        return new ResponseEntity<>(tours, HttpStatus.OK);
+    }
+
+    @GetMapping("/{maTour}")
+    public ResponseEntity<Tour> getTourById(@PathVariable int maTour) {
+        Tour tour = tourService.getTourById(maTour);
+        if (tour != null) {
+            return new ResponseEntity<>(tour, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<Tour> createTour(@RequestBody Tour tour) {
+        Tour createdTour = tourService.createTour(tour);
+        return new ResponseEntity<>(createdTour, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{maTour}")
+    public ResponseEntity<Tour> updateTour(@PathVariable int maTour, @RequestBody Tour tour) {
+        Tour updatedTour = tourService.updateTour(maTour, tour);
+        if (updatedTour != null) {
+            return new ResponseEntity<>(updatedTour, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{maTour}")
+    public ResponseEntity<Void> deleteTour(@PathVariable int maTour) {
+        tourService.deleteTour(maTour);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
+

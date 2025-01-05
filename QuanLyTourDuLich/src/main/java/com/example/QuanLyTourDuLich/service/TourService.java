@@ -1,19 +1,15 @@
 package com.example.QuanLyTourDuLich.service;
 
-import com.example.QuanLyTourDuLich.model.Tour;
-import com.example.QuanLyTourDuLich.repository.TourRepository;
+import com.example.QuanLyTourDuLich.entity.Tour;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
-public class TourService {
-    @Autowired
-    private TourRepository tourRepository;
-
-    public List<Tour> getAllTours() {
-        return tourRepository.findAll();
-    }
+public interface TourService {
+    List<Tour> getAllTours();
+    Tour getTourById(int maTour);
+    Tour createTour(Tour tour);
+    Tour updateTour(int maTour, Tour tour);
+    void deleteTour(int maTour);
+    // Các phương thức khác cho nghiệp vụ liên quan đến Tour
 }
