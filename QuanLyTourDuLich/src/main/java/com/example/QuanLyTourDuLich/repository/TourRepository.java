@@ -21,5 +21,7 @@ public interface TourRepository extends JpaRepository<Tour, Integer> {
 
     @Query("SELECT t FROM Tour t JOIN FETCH t.diaDiem")
     List<Tour> findAllToursWithDiaDiem();
+
+    
     
 }

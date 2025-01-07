@@ -120,25 +120,16 @@
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3">Danh sách Tour</h1>
+                    <h1 class="h3 mb-3">Blank Page</h1>
 
                     <div class="row">
                         <div class="col-12">
-
-                            <table class="table table-striped" id="tourTable">
-                                <thead>
-                                    <tr>
-                                        <th>Mã tour</th>
-                                        <th>Tên tour</th>
-                                        <th>Mô tả</th>
-                                        <th>Số ngày</th>
-                                        <th>Địa điểm khởi hành</th>
-                                        <th>Thao tác</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Empty card</h5>
+                                </div>
+                                <div class="card-body"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -172,79 +163,6 @@
     </div>
 
     <script src="js/app.js"></script>
-
-    <script>
-        // Gọi API để lấy danh sách tour
-        fetch('/api/tours')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Lỗi khi lấy danh sách tour');
-                }
-                return response.json();
-            })
-            .then(tours => {
-                const tbody = document.querySelector('#tourTable tbody');
-                tbody.innerHTML = ''; // Xóa nội dung cũ trước khi thêm mới
-
-                tours.forEach(tour => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                <td>${tour.maTour}</td>
-                <td>${tour.tenTour}</td>
-                <td>${tour.moTa}</td>
-                <td>${tour.soNgay}</td>
-                <td>${tour.diaDiem.tenDiaDiem}</td>
-                <td>
-                    <a href="#" class="btn btn-primary btn-sm edit-tour" data-matour="${tour.maTour}">Sửa</a>
-                    <a href="#" class="btn btn-danger btn-sm delete-tour" data-matour="${tour.maTour}">Xóa</a>
-                </td>
-            `;
-                    tbody.appendChild(row);
-                });
-
-                // Thêm sự kiện click cho nút "Sửa"
-                const editButtons = document.querySelectorAll('.edit-tour');
-                editButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        const maTour = button.dataset.matour;
-                        // Chuyển hướng đến trang sửa tour với maTour tương ứng
-                        window.location.href = `edit-tour.html?maTour=${maTour}`;
-                    });
-                });
-
-                // Thêm sự kiện click cho nút "Xóa"
-                const deleteButtons = document.querySelectorAll('.delete-tour');
-                deleteButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        const maTour = button.dataset.matour;
-                        // Hiển thị confirm dialog
-                        if (confirm('Bạn có chắc chắn muốn xóa tour này?')) {
-                            // Gọi API để xóa tour
-                            fetch(`/api/tours/${maTour}`, {method: 'DELETE'})
-                                .then(response => {
-                                    if (response.ok) {
-                                        // Xóa tour khỏi bảng
-                                        button
-                                            .closest('tr')
-                                            .remove();
-                                    } else {
-                                        console.error('Lỗi khi xóa tour');
-                                        alert('Xóa tour không thành công!');
-                                    }
-                                })
-                                .catch(error => {
-                                    console.error('Lỗi khi xóa tour:', error);
-                                    alert('Xóa tour không thành công!');
-                                });
-                        }
-                    });
-                });
-            })
-            .catch(error => {
-                console.error('Lỗi khi lấy danh sách tour:', error);
-                alert('Không thể lấy danh sách tour. Vui lòng thử lại sau!');
-            });
-    </script>
 
 </body>
 
