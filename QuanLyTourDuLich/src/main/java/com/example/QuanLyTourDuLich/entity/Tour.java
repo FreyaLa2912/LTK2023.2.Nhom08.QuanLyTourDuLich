@@ -21,7 +21,7 @@ public class Tour {
     @Column(name = "SoNgay", nullable = false)
     private int soNgay;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "MaDiaDiem", nullable = false)
     private DiaDiem diaDiem;
 
