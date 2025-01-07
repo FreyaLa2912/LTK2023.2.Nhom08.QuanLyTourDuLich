@@ -14,8 +14,8 @@ public class DatTour {
     private int maDatTour;
 
     @ManyToOne
-    @JoinColumn(name = "MaKH", nullable = false)
-    private KhachHang khachHang;
+    @JoinColumn(name = "MaNguoiDung", nullable = false) // Thay đổi khóa ngoại
+    private NguoiDung nguoiDung; // Liên kết với bảng NguoiDung
 
     @ManyToOne
     @JoinColumns({
@@ -42,10 +42,10 @@ public class DatTour {
     public DatTour() {
     }
 
-    public DatTour(int maDatTour, KhachHang khachHang, Tour_Turn tour_turn, LocalDate ngayDat, int soLuongKhach,
+    public DatTour(int maDatTour, NguoiDung nguoiDung, Tour_Turn tour_turn, LocalDate ngayDat, int soLuongKhach,
             BigDecimal tongTien, String trangThai, String thongBao) {
         this.maDatTour = maDatTour;
-        this.khachHang = khachHang;
+        this.nguoiDung = nguoiDung;
         this.tour_turn = tour_turn;
         this.ngayDat = ngayDat;
         this.soLuongKhach = soLuongKhach;
@@ -62,12 +62,12 @@ public class DatTour {
         this.maDatTour = maDatTour;
     }
 
-    public KhachHang getKhachHang() {
-        return khachHang;
+    public NguoiDung getNguoiDung() {
+        return nguoiDung;
     }
 
-    public void setKhachHang(KhachHang khachHang) {
-        this.khachHang = khachHang;
+    public void setNguoiDung(NguoiDung nguoiDung) {
+        this.nguoiDung = nguoiDung;
     }
 
     public Tour_Turn getTour_turn() {
@@ -119,5 +119,6 @@ public class DatTour {
     }
 
     // Constructor, getter và setter
+    
     
 }
