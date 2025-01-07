@@ -35,8 +35,13 @@ public class Tour_TurnController {
 
     @PostMapping
     public ResponseEntity<Tour_Turn> createTour_Turn(@RequestBody Tour_Turn tour_turn) {
-        Tour_Turn createdTour_Turn = tour_turnService.createTour_Turn(tour_turn);
-        return new ResponseEntity<>(createdTour_Turn, HttpStatus.CREATED);
+        try {
+            Tour_Turn createdTour_Turn = tour_turnService.createTour_Turn(tour_turn);
+            return new ResponseEntity<>(createdTour_Turn, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // Xử lý exception (ví dụ: log lỗi, trả về thông báo lỗi cụ thể)
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping("/{maTour}/{turn}")
@@ -44,17 +49,33 @@ public class Tour_TurnController {
             @PathVariable int maTour, 
             @PathVariable int turn, 
             @RequestBody Tour_Turn tour_turn) {
-        Tour_Turn updatedTour_Turn = tour_turnService.updateTour_Turn(maTour, turn, tour_turn);
-        if (updatedTour_Turn != null) {
-            return new ResponseEntity<>(updatedTour_Turn, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        try {
+            Tour_Turn updatedTour_Turn = tour_turnService.updateTour_Turn(maTour, turn, tour_turn);
+            if (updatedTour_Turn != null) {
+                return new ResponseEntity<>(updatedTour_Turn, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            // Xử lý exception (ví dụ: log lỗi, trả về thông báo lỗi cụ thể)
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @DeleteMapping("/{maTour}/{turn}")
     public ResponseEntity<Void> deleteTour_Turn(@PathVariable int maTour, @PathVariable int turn) {
-        tour_turnService.deleteTour_Turn(maTour, turn);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        try {
+            tour_turnService.deleteTour_Turn(maTour, turn);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            // Xử lý exception (ví dụ: log lỗi, trả về thông báo lỗi cụ thể)
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/tours/{maTour}/turns") // Đường dẫn của API
+    public ResponseEntity<List<Integer>> getTurnsByMaTour(@PathVariable int maTour) {
+        List<Integer> turns = tour_turnService.getTurnsByMaTour(maTour);
+        return new ResponseEntity<>(turns, HttpStatus.OK);
     }
 }

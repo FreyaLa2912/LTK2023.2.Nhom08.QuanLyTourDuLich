@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DatTourServiceImpl implements DatTourService {
@@ -22,7 +23,8 @@ public class DatTourServiceImpl implements DatTourService {
 
     @Override
     public DatTour getDatTourById(int maDatTour) {
-        return datTourRepository.findById(maDatTour).orElse(null);
+        Optional<DatTour> optionalDatTour = datTourRepository.findById(maDatTour);
+        return optionalDatTour.orElse(null);
     }
 
     @Override
@@ -32,12 +34,18 @@ public class DatTourServiceImpl implements DatTourService {
 
     @Override
     public DatTour updateDatTour(int maDatTour, DatTour datTour) {
-        DatTour existingDatTour = datTourRepository.findById(maDatTour).orElse(null);
-        if (existingDatTour != null) {
-            // Cập nhật các thuộc tính của existingDatTour từ datTour
+        Optional<DatTour> optionalExistingDatTour  =  datTourRepository.findById(maDatTour);
+        if (optionalExistingDatTour.isPresent()) {
+            DatTour existingDatTour = optionalExistingDatTour.get();
+            // Cập nhật các thuộc tính của existingDatTour từ datTour (nếu cần)
+            existingDatTour.setNguoiDung(datTour.getNguoiDung());
+            existingDatTour.setTour_turn(datTour.getTour_turn());
             existingDatTour.setNgayDat(datTour.getNgayDat());
             existingDatTour.setSoLuongKhach(datTour.getSoLuongKhach());
-            // ... cập nhật các thuộc tính khác
+            existingDatTour.setTongTien(datTour.getTongTien());
+            existingDatTour.setTrangThai(datTour.getTrangThai());
+            existingDatTour.setThongBao(datTour.getThongBao());
+
             return datTourRepository.save(existingDatTour);
         } else {
             return null;
