@@ -1,602 +1,735 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="AdminKit">
-	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta
+            name="description"
+            content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="AdminKit">
+        <meta
+            name="keywords"
+            content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
 
+        <title>Google Maps | AdminKit Demo</title>
 
+        <link href="css/app.css" rel="stylesheet">
 
-	<title>Google Maps | AdminKit Demo</title>
+        <style>
+            #map {
+                height: 100vh;
+                width: 100%;
+            }
+        </style>
+    </head>
 
-	<link href="css/app.css" rel="stylesheet">
+    <body>
 
-	
-	  <style>
-		#map {
-		  height: 100vh;
-		  width: 100%;
-		}
-	  </style>
-</head>
+        <div class="wrapper">
+            <nav id="sidebar" class="sidebar js-sidebar">
+                <div class="sidebar-content js-simplebar">
+                    <div class="sidebar-brand">
+                        <br class="align-middle">BrownDuckTour
+                        </br>
+                        Quản lý
+                    </div>
 
-<body>
-	
-	<div class="wrapper">
-		<nav id="sidebar" class="sidebar js-sidebar">
-			<div class="sidebar-content js-simplebar">
-			  <div class="sidebar-brand">
-				<br class="align-middle">BrownDuckTour
-				</br>
-				Quản lý
-			  </div>
-	  
-			  <ul class="sidebar-nav">
-				<li class="sidebar-item ">
-				  <a class="sidebar-link" href="indexAdmin.html">
-					<i class="align-middle" data-feather="sliders"></i>
-					<span class="align-middle">Thống kê</span>
-				  </a>
-				</li>
-	  
-				<li class="sidebar-header">
-				  TÍNH NĂNG QUẢN LÝ
-				</li>
-	  
-				<li class="sidebar-item">
-				  <a class="sidebar-link" href="QLTour.html">
-					<i class="align-middle" data-feather="navigation"></i>
-					<span class="align-middle">Tour / Lịch trình</span>
-				  </a>
-				</li>
-	  
-				<li class="sidebar-item active">
-				  <a class="sidebar-link" href="QLBanDo.html">
-					<i class="align-middle" data-feather="map"></i>
-					<span class="align-middle">Bản đồ</span>
-				  </a>
-				</li>
-	  
-				<li class="sidebar-item">
-				  <a class="sidebar-link" href="QLDiaDiem.html">
-					<i class="align-middle" data-feather="map-pin"></i>
-					<span class="align-middle">Địa điểm</span>
-				  </a>
-				</li>
-	  
-				<li class="sidebar-item">
-				  <a class="sidebar-link" href="QLDotTour.html">
-					<i class="align-middle" data-feather="list"></i>
-					<span class="align-middle">Đợt Tour</span>
-				  </a>
-				</li>
-	  
-				<li class="sidebar-item">
-				  <a class="sidebar-link" href="QLDonDatTour.html">
-					<i class="align-middle" data-feather="file-text"></i>
-					<span class="align-middle">Đơn đặt Tour</span>
-				  </a>
-				</li>
-	  
-				<li class="sidebar-item">
-				  <a class="sidebar-link" href="QLNguoiDung.html">
-					<i class="align-middle" data-feather="user"></i>
-					<span class="align-middle">Tài khoản người dùng</span>
-				  </a>
-				</li>
-	  
-				<li class="sidebar-item">
-				  <a class="sidebar-link" href="QLHuongDanVien.html">
-					<i class="align-middle" data-feather="users"></i>
-					<span class="align-middle">Hướng dẫn viên</span>
-				  </a>
-				</li>
-	  
-				<li class="sidebar-header">
-				  TÀI KHOẢN
-				</li>
-	  
-				<li class="sidebar-item">
-				  <a class="sidebar-link" href="index.html">
-					<i class="align-middle" data-feather="log-in"></i>
-					<span class="align-middle">Đăng xuất</span>
-				  </a>
-				</li>
-			  </ul>
-			</div>
-		  </nav>
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-item ">
+                            <a class="sidebar-link" href="indexAdmin.html">
+                                <i class="align-middle" data-feather="sliders"></i>
+                                <span class="align-middle">Thống kê</span>
+                            </a>
+                        </li>
 
-		<div class="main">
-			<nav class="navbar navbar-expand navbar-light navbar-bg">
-				<a class="sidebar-toggle js-sidebar-toggle">
-				  <i class="hamburger align-self-center"></i>
-				</a>
-			  </nav>
+                        <li class="sidebar-header">
+                            TÍNH NĂNG QUẢN LÝ
+                        </li>
 
-			<main class="content">
-				<div class="container-fluid p-0">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="QLTour.html">
+                                <i class="align-middle" data-feather="navigation"></i>
+                                <span class="align-middle">Tour / Lịch trình</span>
+                            </a>
+                        </li>
 
-				
-					<div class="row">
-						<div class="col-12 col-lg-6">
-							<h4 class="mb-3">Lựa Chọn Địa Điểm Du Lịch</h4>
-							<ul class="list-group flex-grow-1 overflow-auto">
-							  <li class="list-group-item" onclick="selectLocation('Đinh độc lập')">
-								Đinh độc lập
-								<button class="btn btn-sm btn-warning float-end" onclick="editLocation('hanoi'); event.stopPropagation();">Sửa</button>
-								<button class="btn btn-sm btn-danger float-end me-2" onclick="deleteLocation('hanoi'); event.stopPropagation();">Xóa</button>
-							  </li>
-							  <li class="list-group-item" onclick="selectLocation('Bảo tàng Lịch sử Việt Nam')">
-								Bảo tàng Lịch sử Việt Nam
-								<button class="btn btn-sm btn-warning float-end" onclick="editLocation('ninhbinh'); event.stopPropagation();">Sửa</button>
-								<button class="btn btn-sm btn-danger float-end me-2" onclick="deleteLocation('ninhbinh'); event.stopPropagation();">Xóa</button>
-							  </li>
-							
-							</ul>
-							<button class="btn btn-primary mt-3" onclick="addLocation()">Thêm Địa Điểm</button>
-							</div>
-						<div class="col-12 col-lg-6">
-							<div id="map"></div>
+                        <li class="sidebar-item active">
+                            <a class="sidebar-link" href="QLBanDo.html">
+                                <i class="align-middle" data-feather="map"></i>
+                                <span class="align-middle">Bản đồ</span>
+                            </a>
+                        </li>
 
-							<script>
-								// Tạo bản đồ và cài đặt điểm bắt đầu
-								const map = L.map('map').setView([10.876185, 106.798682], 14);
-                    
-					// Thêm lớp bản đồ từ OpenStreetMap
-					L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-					  maxZoom: 30,
-					  attribution: '© OpenStreetMap contributors'
-					}).addTo(map);
-					  // Danh sách các địa điểm
-					  const locations = {
-						"Đinh độc lập": [10.776940,106.695356],
-						"Bảo tàng Lịch sử Việt Nam": [10.787919, 106.704889],
-					   
-					  };
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="QLDiaDiem.html">
+                                <i class="align-middle" data-feather="map-pin"></i>
+                                <span class="align-middle">Địa điểm</span>
+                            </a>
+                        </li>
 
-					  // Hàm chọn địa điểm
-					  function selectLocation(locationName) {
-						const location = locations[locationName];
-						if (location) {
-						  map.setView(location, 19); // Cập nhật vị trí trung tâm và zoom
-						} else {
-						  console.error("Không tìm thấy địa điểm:", locationName);
-						}
-					  }
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="QLDotTour.html">
+                                <i class="align-middle" data-feather="list"></i>
+                                <span class="align-middle">Đợt Tour</span>
+                            </a>
+                        </li>
 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="QLDonDatTour.html">
+                                <i class="align-middle" data-feather="file-text"></i>
+                                <span class="align-middle">Đơn đặt Tour</span>
+                            </a>
+                        </li>
 
-								// Thêm sự kiện click vào bản đồ
-								map.on("click", function (event) {
-								  const { lng, lat } = event.latlng;
-							
-								  console.log("Tọa độ (Longitude, Latitude):", lng, lat);
-							
-								  // Mở popup tại điểm vừa click
-								  L.popup()
-									.setLatLng(event.latlng)
-									.setContent(`
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="QLNguoiDung.html">
+                                <i class="align-middle" data-feather="user"></i>
+                                <span class="align-middle">Tài khoản người dùng</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="QLHuongDanVien.html">
+                                <i class="align-middle" data-feather="users"></i>
+                                <span class="align-middle">Hướng dẫn viên</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-header">
+                            TÀI KHOẢN
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="index.html">
+                                <i class="align-middle" data-feather="log-in"></i>
+                                <span class="align-middle">Đăng xuất</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="main">
+                <nav class="navbar navbar-expand navbar-light navbar-bg">
+                    <a class="sidebar-toggle js-sidebar-toggle">
+                        <i class="hamburger align-self-center"></i>
+                    </a>
+                </nav>
+
+                <main class="content">
+                    <div class="container-fluid p-0">
+
+                        <div class="row">
+                            <div class="col-12 col-lg-4">
+                                <h4 class="mb-3">Lựa Chọn Địa Điểm Du Lịch</h4>
+                                <ul class="list-group flex-grow-1 overflow-auto">
+                                    <li class="list-group-item" onclick="selectLocation('Đinh độc lập')">
+                                        Đinh độc lập
+                                        <button
+                                            class="btn btn-sm btn-warning float-end"
+                                            onclick="editLocation('hanoi'); event.stopPropagation();">Sửa</button>
+                                        <button
+                                            class="btn btn-sm btn-danger float-end me-2"
+                                            onclick="deleteLocation('hanoi'); event.stopPropagation();">Xóa</button>
+                                    </li>
+                                    <li
+                                        class="list-group-item"
+                                        onclick="selectLocation('Bảo tàng Lịch sử Việt Nam')">
+                                        Bảo tàng Lịch sử Việt Nam
+                                        <button
+                                            class="btn btn-sm btn-warning float-end"
+                                            onclick="editLocation('ninhbinh'); event.stopPropagation();">Sửa</button>
+                                        <button
+                                            class="btn btn-sm btn-danger float-end me-2"
+                                            onclick="deleteLocation('ninhbinh'); event.stopPropagation();">Xóa</button>
+                                    </li>
+
+                                </ul>
+                                <button class="btn btn-primary mt-3" onclick="addLocation()">Thêm Địa Điểm</button>
+                            </div>
+                            <div class="col-12 col-lg-8">
+                                <div id="map"></div>
+
+                                <script>
+                                    // Tạo bản đồ và cài đặt điểm bắt đầu
+                                    const map = L
+                                        .map('map')
+                                        .setView([
+                                            10.876185, 106.798682
+                                        ], 14);
+
+                                    // Thêm lớp bản đồ từ OpenStreetMap
+                                    L
+                                        .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            maxZoom: 30,
+                                            attribution: '© OpenStreetMap contributors'
+                                        })
+                                        .addTo(map);
+                                    // Danh sách các địa điểm
+                                    const locations = {
+                                        "Đinh độc lập": [
+                                            10.776940, 106.695356
+                                        ],
+                                        "Bảo tàng Lịch sử Việt Nam": [10.787919, 106.704889]
+                                    };
+
+                                    // Hàm chọn địa điểm
+                                    function selectLocation(locationName) {
+                                        const location = locations[locationName];
+                                        if (location) {
+                                            map.setView(location, 19); // Cập nhật vị trí trung tâm và zoom
+                                        } else {
+                                            console.error("Không tìm thấy địa điểm:", locationName);
+                                        }
+                                    }
+
+                                    // Thêm sự kiện click vào bản đồ
+                                    map.on("click", function (event) {
+                                        const {lng, lat} = event.latlng;
+
+                                        console.log("Tọa độ (Longitude, Latitude):", lng, lat);
+
+                                        // Mở popup tại điểm vừa click
+                                        L
+                                            .popup()
+                                            .setLatLng(event.latlng)
+                                            .setContent(
+                                                `
 									  <b>Tọa độ bạn vừa bấm:</b><br>
 									  [${lat.toFixed(6)}, ${lng.toFixed(6)}]
-									`)
-									.openOn(map);
-								});
-							
-								// Hàm tìm tuyến đường bằng API của GraphHopper
-								async function findRoute(start, end, name, location, color) {
-								  const apiKey = "0685e186-b4a0-463e-8744-bfbe8ed14cee"; // API key của bạn
-								  const url = `https://graphhopper.com/api/1/route?point=${start.lat},${start.lng}&point=${end.lat},${end.lng}&profile=car&locale=en&key=${apiKey}&instructions=false`;
-							
-								  try {
-									const response = await fetch(url);
-									if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-									const data = await response.json();
-							
-									if (data.paths && data.paths.length > 0) {
-									  const path = data.paths[0].points; // Lấy tuyến đường
-									  const decodedPath = decodePolyline(path); // Giải mã polyline
-							
-									  const latLngs = decodedPath.map(coord => [coord[0], coord[1]]);
-									  const polyline = L.polyline(latLngs, {
-										color: color,    // Màu đường vẽ (thay đổi màu tùy theo tuyến đường)
-										weight: 5,       // Độ rộng của đường vẽ
-										opacity: 0.7     // Độ mờ của đường vẽ
-									  }).addTo(map);
-									  map.fitBounds(polyline.getBounds()); // Phóng to vùng có tuyến đường
-							
-									  // Thêm popup với tên và địa điểm
-									  polyline.bindPopup(`
+									`
+                                            )
+                                            .openOn(map);
+                                    });
+
+                                    // Hàm tìm tuyến đường bằng API của GraphHopper
+                                    async function findRoute(start, end, name, location, color) {
+                                        const apiKey = "0685e186-b4a0-463e-8744-bfbe8ed14cee"; // API key của bạn
+                                        const url = `https://graphhopper.com/api/1/route?point=${start.lat},${start.lng}&point=${end.lat},${end.lng}&profile=car&locale=en&key=${apiKey}&instructions=false`;
+
+                                        try {
+                                            const response = await fetch(url);
+                                            if (!response.ok) 
+                                                throw new Error(`HTTP error! status: ${response.status}`);
+                                            const data = await response.json();
+
+                                            if (data.paths && data.paths.length > 0) {
+                                                const path = data
+                                                    .paths[0]
+                                                    .points; // Lấy tuyến đường
+                                                const decodedPath = decodePolyline(path); // Giải mã polyline
+
+                                                const latLngs = decodedPath.map(coord => [
+                                                    coord[0], coord[1]
+                                                ]);
+                                                const polyline = L
+                                                    .polyline(latLngs, {
+                                                        color: color, // Màu đường vẽ (thay đổi màu tùy theo tuyến đường)
+                                                        weight: 5, // Độ rộng của đường vẽ
+                                                        opacity: 0.7 // Độ mờ của đường vẽ
+                                                    })
+                                                    .addTo(map);
+                                                map.fitBounds(polyline.getBounds()); // Phóng to vùng có tuyến đường
+
+                                                // Thêm popup với tên và địa điểm
+                                                polyline.bindPopup(
+                                                    `
 										<b>Tên tuyến đường:</b> ${name}<br>
 										<b>Địa điểm:</b> ${location}
-									  `);
-							
-									  // Lấy điểm start và end
-									  const startPoint = decodedPath[0]; // Điểm bắt đầu
-									  const endPoint = decodedPath[decodedPath.length - 1]; // Điểm kết thúc
-							
-									  // Tạo marker cho điểm bắt đầu với tên của start
-									  L.marker([startPoint[0], startPoint[1]], {
-										icon: L.icon({
-										  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-										  iconSize: [25, 41],
-										  iconAnchor: [12, 41],
-										  popupAnchor: [1, -34],
-										  shadowSize: [41, 41]
-										})
-									  })
-										.bindPopup(`<b>Điểm bắt đầu:</b> ${start.name}`)  // Hiển thị tên điểm bắt đầu
-										.addTo(map);
-							
-									  // Tạo marker cho điểm kết thúc với tên của end
-									  L.marker([endPoint[0], endPoint[1]], {
-										icon: L.divIcon({
-										  className: 'custom-icon',
-										  html: `
+									  `
+                                                );
+
+                                                // Lấy điểm start và end
+                                                const startPoint = decodedPath[0]; // Điểm bắt đầu
+                                                const endPoint = decodedPath[decodedPath.length - 1]; // Điểm kết thúc
+
+                                                // Tạo marker cho điểm bắt đầu với tên của start
+                                                L
+                                                    .marker([
+                                                        startPoint[0], startPoint[1]
+                                                    ], {
+                                                        icon: L.icon({
+                                                            iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+                                                            iconSize: [
+                                                                25, 41
+                                                            ],
+                                                            iconAnchor: [
+                                                                12, 41
+                                                            ],
+                                                            popupAnchor: [
+                                                                1, -34
+                                                            ],
+                                                            shadowSize: [41, 41]
+                                                        })
+                                                    })
+                                                    .bindPopup(`<b>Điểm bắt đầu:</b> ${start.name}`) // Hiển thị tên điểm bắt đầu
+                                                    .addTo(map);
+
+                                                // Tạo marker cho điểm kết thúc với tên của end
+                                                L
+                                                    .marker([
+                                                        endPoint[0], endPoint[1]
+                                                    ], {
+                                                        icon: L.divIcon({
+                                                            className: 'custom-icon',
+                                                            html: `
 								  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="41" viewBox="0 0 25 41">
 									<path fill="#ff0000" d="M12.5 0C6.2 0 0 5.8 0 13c0 9.3 12.5 27.8 12.5 27.8S25 22.3 25 13c0-7.2-6.2-13-12.5-13zm0 18.5c-3 0-5.5-2.5-5.5-5.5s2.5-5.5 5.5-5.5 5.5 2.5 5.5 5.5-2.5 5.5-5.5 5.5z"/>
 								  </svg>
 								`,
-										  iconSize: [25, 41],
-										  iconAnchor: [12.5, 41]
-										})
-									  })
-										.bindPopup(`<b>Điểm kết thúc:</b> ${end.name}`)
-										.addTo(map);
-									} else {
-									  console.error("No paths found in response");
-									}
-								  } catch (error) {
-									console.error("Error fetching route:", error);
-								  }
-								}
-							
-								// Hàm giải mã polyline
-								function decodePolyline(encoded) {
-								  const points = [];
-								  let index = 0,
-									len = encoded.length;
-								  let lat = 0,
-									lng = 0;
-							
-								  while (index < len) {
-									let b, shift = 0, result = 0;
-									do {
-									  b = encoded.charCodeAt(index++) - 63;
-									  result |= (b & 0x1f) << shift;
-									  shift += 5;
-									} while (b >= 0x20);
-									const dlat = ((result & 1) ? ~(result >> 1) : (result >> 1));
-									lat += dlat;
-							
-									shift = 0;
-									result = 0;
-									do {
-									  b = encoded.charCodeAt(index++) - 63;
-									  result |= (b & 0x1f) << shift;
-									  shift += 5;
-									} while (b >= 0x20);
-									const dlng = ((result & 1) ? ~(result >> 1) : (result >> 1));
-									lng += dlng;
-							
-									points.push([lat / 1e5, lng / 1e5]);
-								  }
-							
-								  return points;
-								}
-							
-								// Định nghĩa các tuyến đường với các màu khác nhau
-								const routes = [
-								 
-								  {
-									start: { lat: 10.779606, lng: 106.692665, name: "Bảo Tàng Chứng Tích Chiến Tranh" },
-									end: { lat: 10.7763, lng: 106.6954, name: "Dinh Độc Lập" },
-									name: "Bảo Tàng Chứng Tích Chiến Tranh đến Đinh Độc Lập",
-									location: "Phường Bến Thành, Quận 1, Hồ Chí Minh",
-									color: "blue" // Màu của tuyến đường
-								  },
-								  {
-									start: { lat: 10.775756, lng: 106.694931, name: "Đinh dộc lập" },
-									end: { lat:10.776189, lng: 106.699609, name: "Bảo tàng Hồ  Chí Minh" },
-									name: "Định độc lập đến Bảo tàng Hồ Chí Minh",
-									location: "65 Lý Tự Trọng, Bến Nghé, Quận 1, Hồ Chí Minh, Việt Nam",
-									color: "blue" // Màu của tuyến đường
-								  },
-								  {
-									start: { lat: 10.776397, lng: 106.699582, name: "Bảo tàng Hồ Chí Minh" },
-									end: { lat:10.786795, lng: 106.704517, name: "Bảo tàng chiến dịch Hồ Chí Minh" },
-									name: "Bảo tàng Hồ Chí Minh đến Bảo tàng chiến dịch Hồ Chí Minh",
-									location: "Bảo Tàng Chứng Tích Chiến Tranh, Phường 6, Quận 3, Hồ Chí Minh 700000, Việt Nam",
-									color: "blue" // Màu của tuyến đường
-								  },
-								  {
-									start: { lat: 10.786727, lng: 106.704456, name: "Bảo tàng chiến dịch Hồ Chí Minh" },
-									end: { lat: 10.787622, lng: 106.704585, name: "Bảo tàng Lịch sử Hồ Chí Minh" },
-									name: "Bảo tàng chiến dịch Hồ Chí Minh đếnBảo tàng Lịch sử Hồ Chí Minh",
-									location: "Bảo Tàng Chứng Tích Chiến Tranh, Phường 6, Quận 3, Hồ Chí Minh 700000, Việt Nam",
-									color: "blue" // Màu của tuyến đường
-								  },
-								];
-							
-								// Tìm tuyến đường cho các tuyến đã định nghĩa
-								routes.forEach(route => {
-								  findRoute(route.start, route.end, route.name, route.location, route.color);
-								});
-							
-								const points = [
-								  {
-									lat:10.787919,
-									lng: 106.704889,
-									name: "Bảo tàng Lịch sử Việt Nam",
-									location: "2 Đ. Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1, Hồ Chí Minh, Việt Nam",
-									symbol: {
-									  url: "/images/BaoTangLichSuHCM.jpg",
-									  width: "60",
-									  height: "60"
-									}
-								  },
-								  {
-									lat: 10.776940,
-									lng: 106.695356,
-									name: "Dinh Độc Lập",
-									location: "135 Đ. Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
-									symbol: {
-									  url: "/images/Langbac.jpg",
-									  width: "60",
-									  height: "60"
-									}
-								  },
-								  {
-									lat: 10.779314,
-									lng: 106.692296,
-									name: "Bảo tàng chứng tích chiến tranh",
-									location: "Phường 6, Quận 3, Hồ Chí Minh 700000, Việt Nam",
-									symbol: {
-									  url: "/images/Baotangchungtich.jpg",
-									  width: "60",
-									  height: "60"
-									}
-								  },
-								  {
-									lat: 10.775881,
-									lng: 106.699622,
-									name: "Bảo Tàng HCM ",
-									location: "..",
-									symbol: {
-									  url: "/images/BaotangHCM.jpg",
-									  width: "60",
-									  height: "60"
-									}
-								  },
-								  {
-									lat: 10.786998,
-									lng:  106.704218,
-									name: "Bảo Tàng  chiến dịch Hồ Chí Minh ",
-									location: "..",
-									symbol: {
-									  url: "/images/BaotangchiendichHCM.jpg",
-									  width: "60",
-									  height: "60"
-									}
-								  }
-								];
-							
-								// Thêm các marker với biểu tượng riêng
-								points.forEach(point => {
-								  L.marker([point.lat, point.lng], {
-									icon: L.icon({
-									  iconUrl: point.symbol.url || "https://example.com/default-icon.png", // Biểu tượng mặc định nếu không có URL
-									  iconSize: [parseInt(point.symbol.width), parseInt(point.symbol.height)],
-									  iconAnchor: [20, 40], // Đặt vị trí neo phù hợp
-									  popupAnchor: [1, -34]
-									})
-								  })
-									.bindPopup(`
+                                                            iconSize: [
+                                                                25, 41
+                                                            ],
+                                                            iconAnchor: [12.5, 41]
+                                                        })
+                                                    })
+                                                    .bindPopup(`<b>Điểm kết thúc:</b> ${end.name}`)
+                                                    .addTo(map);
+                                            } else {
+                                                console.error("No paths found in response");
+                                            }
+                                        } catch (error) {
+                                            console.error("Error fetching route:", error);
+                                        }
+                                    }
+
+                                    // Hàm giải mã polyline
+                                    function decodePolyline(encoded) {
+                                        const points = [];
+                                        let index = 0,
+                                            len = encoded.length;
+                                        let lat = 0,
+                                            lng = 0;
+
+                                        while (index < len) {
+                                            let b,
+                                                shift = 0,
+                                                result = 0;
+                                            do {
+                                                b = encoded.charCodeAt(index++) - 63;
+                                                result |= (b & 0x1f) << shift;
+                                                shift += 5;
+                                            } while (b >= 0x20);
+                                            const dlat = (
+                                                (result & 1)
+                                                    ? ~ (result >> 1)
+                                                    : (result >> 1)
+                                            );
+                                            lat += dlat;
+
+                                            shift = 0;
+                                            result = 0;
+                                            do {
+                                                b = encoded.charCodeAt(index++) - 63;
+                                                result |= (b & 0x1f) << shift;
+                                                shift += 5;
+                                            } while (b >= 0x20);
+                                            const dlng = (
+                                                (result & 1)
+                                                    ? ~ (result >> 1)
+                                                    : (result >> 1)
+                                            );
+                                            lng += dlng;
+
+                                            points.push([
+                                                lat / 1e5,
+                                                lng / 1e5
+                                            ]);
+                                        }
+
+                                        return points;
+                                    }
+
+                                    // Định nghĩa các tuyến đường với các màu khác nhau
+                                    const routes = [
+
+                                        {
+                                            start: {
+                                                lat: 10.779606,
+                                                lng: 106.692665,
+                                                name: "Bảo Tàng Chứng Tích Chiến Tranh"
+                                            },
+                                            end: {
+                                                lat: 10.7763,
+                                                lng: 106.6954,
+                                                name: "Dinh Độc Lập"
+                                            },
+                                            name: "Bảo Tàng Chứng Tích Chiến Tranh đến Đinh Độc Lập",
+                                            location: "Phường Bến Thành, Quận 1, Hồ Chí Minh",
+                                            color: "blue" // Màu của tuyến đường
+                                        }, {
+                                            start: {
+                                                lat: 10.775756,
+                                                lng: 106.694931,
+                                                name: "Đinh dộc lập"
+                                            },
+                                            end: {
+                                                lat: 10.776189,
+                                                lng: 106.699609,
+                                                name: "Bảo tàng Hồ  Chí Minh"
+                                            },
+                                            name: "Định độc lập đến Bảo tàng Hồ Chí Minh",
+                                            location: "65 Lý Tự Trọng, Bến Nghé, Quận 1, Hồ Chí Minh, Việt Nam",
+                                            color: "blue" // Màu của tuyến đường
+                                        }, {
+                                            start: {
+                                                lat: 10.776397,
+                                                lng: 106.699582,
+                                                name: "Bảo tàng Hồ Chí Minh"
+                                            },
+                                            end: {
+                                                lat: 10.786795,
+                                                lng: 106.704517,
+                                                name: "Bảo tàng chiến dịch Hồ Chí Minh"
+                                            },
+                                            name: "Bảo tàng Hồ Chí Minh đến Bảo tàng chiến dịch Hồ Chí Minh",
+                                            location: "Bảo Tàng Chứng Tích Chiến Tranh, Phường 6, Quận 3, Hồ Chí Minh 700000, Việt Na" +
+                                                    "m",
+                                            color: "blue" // Màu của tuyến đường
+                                        }, {
+                                            start: {
+                                                lat: 10.786727,
+                                                lng: 106.704456,
+                                                name: "Bảo tàng chiến dịch Hồ Chí Minh"
+                                            },
+                                            end: {
+                                                lat: 10.787622,
+                                                lng: 106.704585,
+                                                name: "Bảo tàng Lịch sử Hồ Chí Minh"
+                                            },
+                                            name: "Bảo tàng chiến dịch Hồ Chí Minh đếnBảo tàng Lịch sử Hồ Chí Minh",
+                                            location: "Bảo Tàng Chứng Tích Chiến Tranh, Phường 6, Quận 3, Hồ Chí Minh 700000, Việt Na" +
+                                                    "m",
+                                            color: "blue" // Màu của tuyến đường
+                                        }
+                                    ];
+
+                                    // Tìm tuyến đường cho các tuyến đã định nghĩa
+                                    routes.forEach(route => {
+                                        findRoute(route.start, route.end, route.name, route.location, route.color);
+                                    });
+
+                                    const points = [
+                                        {
+                                            lat: 10.787919,
+                                            lng: 106.704889,
+                                            name: "Bảo tàng Lịch sử Việt Nam",
+                                            location: "2 Đ. Nguyễn Bỉnh Khiêm, Bến Nghé, Quận 1, Hồ Chí Minh, Việt Nam",
+                                            symbol: {
+                                                url: "/images/BaoTangLichSuHCM.jpg",
+                                                width: "60",
+                                                height: "60"
+                                            }
+                                        }, {
+                                            lat: 10.776940,
+                                            lng: 106.695356,
+                                            name: "Dinh Độc Lập",
+                                            location: "135 Đ. Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
+                                            symbol: {
+                                                url: "/images/Langbac.jpg",
+                                                width: "60",
+                                                height: "60"
+                                            }
+                                        }, {
+                                            lat: 10.779314,
+                                            lng: 106.692296,
+                                            name: "Bảo tàng chứng tích chiến tranh",
+                                            location: "Phường 6, Quận 3, Hồ Chí Minh 700000, Việt Nam",
+                                            symbol: {
+                                                url: "/images/Baotangchungtich.jpg",
+                                                width: "60",
+                                                height: "60"
+                                            }
+                                        }, {
+                                            lat: 10.775881,
+                                            lng: 106.699622,
+                                            name: "Bảo Tàng HCM ",
+                                            location: "..",
+                                            symbol: {
+                                                url: "/images/BaotangHCM.jpg",
+                                                width: "60",
+                                                height: "60"
+                                            }
+                                        }, {
+                                            lat: 10.786998,
+                                            lng: 106.704218,
+                                            name: "Bảo Tàng  chiến dịch Hồ Chí Minh ",
+                                            location: "..",
+                                            symbol: {
+                                                url: "/images/BaotangchiendichHCM.jpg",
+                                                width: "60",
+                                                height: "60"
+                                            }
+                                        }
+                                    ];
+
+                                    // Thêm các marker với biểu tượng riêng
+                                    points.forEach(point => {
+                                        L
+                                            .marker([
+                                                point.lat, point.lng
+                                            ], {
+                                                icon: L.icon({
+                                                    iconUrl: point.symbol.url || "https://example.com/default-icon.png", // Biểu tượng mặc định nếu không có URL
+                                                    iconSize: [
+                                                        parseInt(point.symbol.width),
+                                                        parseInt(point.symbol.height)
+                                                    ],
+                                                    iconAnchor: [
+                                                        20, 40
+                                                    ], // Đặt vị trí neo phù hợp
+                                                    popupAnchor: [1, -34]
+                                                })
+                                            })
+                                            .bindPopup(
+                                                `
 									  <b>Tên:</b> ${point.name}<br>
 									  <b>Địa điểm:</b> ${point.location}
-									`)
-									.addTo(map);
-								});
-							
-								// Danh sách các vùng đa giác
-								const polygons = [
-								  {
-									type: "polygon",
-									rings: [
-									  [106.696088, 10.774818],
-									  [106.693083, 10.777485],
-									  [106.694988, 10.779500],
-									  [106.697958, 10.776804]
-									],
-									name: "Dinh Độc Lập",
-									location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
-									symbol: {
-									  color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
-									  outline: {
-										color: "#FFFFFF", // Màu viền trắng
-										width: 1 // Độ rộng viền
-									  }
-									},
-									popupTemplate: `
+									`
+                                            )
+                                            .addTo(map);
+                                    });
+
+                                    // Danh sách các vùng đa giác
+                                    const polygons = [
+                                        {
+                                            type: "polygon",
+                                            rings: [
+                                                [
+                                                    106.696088, 10.774818
+                                                ],
+                                                [
+                                                    106.693083, 10.777485
+                                                ],
+                                                [
+                                                    106.694988, 10.779500
+                                                ],
+                                                [
+                                                    106.697958, 10.776804
+                                                ]
+                                            ],
+                                            name: "Dinh Độc Lập",
+                                            location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
+                                            symbol: {
+                                                color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
+                                                outline: {
+                                                    color: "#FFFFFF", // Màu viền trắng
+                                                    width: 1 // Độ rộng viền
+                                                }
+                                            },
+                                            popupTemplate: `
 									  <b>Tên:</b> Dinh Độc Lập<br>
 									  <b>Địa điểm:</b> Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam
 									`
-								  },
-								  {
-									type: "polygon",
-									rings: [
-									  [106.691639, 10.779534],
-									  [106.692336, 10.778916],
-									  [106.692802, 10.779366],
-									  [106.692320, 10.779810],
-									  [106.691937, 10.779875]
-							
-							
-							
-									],
-									name: "Bảo tàng chứng tích chiến tranh",
-									location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
-									symbol: {
-									  color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
-									  outline: {
-										color: "#FFFFFF", // Màu viền trắng
-										width: 1 // Độ rộng viền
-									  }
-									},
-									popupTemplate: `
+                                        }, {
+                                            type: "polygon",
+                                            rings: [
+                                                [
+                                                    106.691639, 10.779534
+                                                ],
+                                                [
+                                                    106.692336, 10.778916
+                                                ],
+                                                [
+                                                    106.692802, 10.779366
+                                                ],
+                                                [
+                                                    106.692320, 10.779810
+                                                ],
+                                                [
+                                                    106.691937, 10.779875
+                                                ]
+
+                                            ],
+                                            name: "Bảo tàng chứng tích chiến tranh",
+                                            location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
+                                            symbol: {
+                                                color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
+                                                outline: {
+                                                    color: "#FFFFFF", // Màu viền trắng
+                                                    width: 1 // Độ rộng viền
+                                                }
+                                            },
+                                            popupTemplate: `
 									  <b>Tên:</b> Bảo tàng chứng tích chiến tranh<br>
 									  <b>Địa điểm:</b> Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam
 									`
-								  },
-								  {
-									type: "polygon",
-									rings: [
-									  [106.704138, 10.786727],
-									  [106.704520, 10.787058],
-									  [106.704332, 10.787213],
-									  [106.704015, 10.786875],
-									  [106.704161, 10.786748]
-							
-							
-							
-									],
-									name: "Bảo tàng chiến dịch Hồ Chí Minh",
-									location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
-									symbol: {
-									  color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
-									  outline: {
-										color: "#FFFFFF", // Màu viền trắng
-										width: 1 // Độ rộng viền
-									  }
-									},
-									popupTemplate: `
+                                        }, {
+                                            type: "polygon",
+                                            rings: [
+                                                [
+                                                    106.704138, 10.786727
+                                                ],
+                                                [
+                                                    106.704520, 10.787058
+                                                ],
+                                                [
+                                                    106.704332, 10.787213
+                                                ],
+                                                [
+                                                    106.704015, 10.786875
+                                                ],
+                                                [
+                                                    106.704161, 10.786748
+                                                ]
+
+                                            ],
+                                            name: "Bảo tàng chiến dịch Hồ Chí Minh",
+                                            location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
+                                            symbol: {
+                                                color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
+                                                outline: {
+                                                    color: "#FFFFFF", // Màu viền trắng
+                                                    width: 1 // Độ rộng viền
+                                                }
+                                            },
+                                            popupTemplate: `
 									  <b>Tên:</b>Bảo tàng chiến dịch Hồ Chí Minh<br>
 									  <b>Địa điểm:</b> Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam
 									`
-								  },
-								  {
-									type: "polygon",
-									rings: [
-									  [106.70483703679164, 10.787551936086835],
-									  [106.70460435516785, 10.787753498892442],
-									  [106.70473275538112, 10.787840021583447],
-									  [106.704515, 10.788095],
-									  [106.70480450255207, 10.788380402680485],
-									  [106.70484255110756, 10.788392795278227],
-									  [106.70533096011185, 10.788003411219393]
-							
-							
-									],
-									name: "Bảo tàng lịch sử HCM",
-									location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
-									symbol: {
-									  color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
-									  outline: {
-										color: "#FFFFFF", // Màu viền trắng
-										width: 1 // Độ rộng viền
-									  }
-									},
-									popupTemplate: `
+                                        }, {
+                                            type: "polygon",
+                                            rings: [
+                                                [
+                                                    106.70483703679164, 10.787551936086835
+                                                ],
+                                                [
+                                                    106.70460435516785, 10.787753498892442
+                                                ],
+                                                [
+                                                    106.70473275538112, 10.787840021583447
+                                                ],
+                                                [
+                                                    106.704515, 10.788095
+                                                ],
+                                                [
+                                                    106.70480450255207, 10.788380402680485
+                                                ],
+                                                [
+                                                    106.70484255110756, 10.788392795278227
+                                                ],
+                                                [
+                                                    106.70533096011185, 10.788003411219393
+                                                ]
+
+                                            ],
+                                            name: "Bảo tàng lịch sử HCM",
+                                            location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
+                                            symbol: {
+                                                color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
+                                                outline: {
+                                                    color: "#FFFFFF", // Màu viền trắng
+                                                    width: 1 // Độ rộng viền
+                                                }
+                                            },
+                                            popupTemplate: `
 									  <b>Tên:</b>Bảo tàng lịch sử HCM<br>
 									  <b>Địa điểm:</b> Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam
 									`
-								  },
-								  {
-									type: "polygon",
-									rings: [
-								   [106.699581,10.775571],
-								   [106.699298,10.775819],
-								   [106.699533,10.776048],
-								   [106.699771,10.776246],
-								   [106.700010,10.776029],
-								   [106.699838,10.775822]
-								   
-							
-							
-									],
-									name: "Bảo tàng HCM",
-									location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
-									symbol: {
-									  color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
-									  outline: {
-										color: "#FFFFFF", // Màu viền trắng
-										width: 1 // Độ rộng viền
-									  }
-									},
-									popupTemplate: `
+                                        }, {
+                                            type: "polygon",
+                                            rings: [
+                                                [
+                                                    106.699581, 10.775571
+                                                ],
+                                                [
+                                                    106.699298, 10.775819
+                                                ],
+                                                [
+                                                    106.699533, 10.776048
+                                                ],
+                                                [
+                                                    106.699771, 10.776246
+                                                ],
+                                                [
+                                                    106.700010, 10.776029
+                                                ],
+                                                [
+                                                    106.699838, 10.775822
+                                                ]
+
+                                            ],
+                                            name: "Bảo tàng HCM",
+                                            location: "Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam",
+                                            symbol: {
+                                                color: "rgba(204, 153, 0, 0.2)", // Màu vùng với độ trong suốt
+                                                outline: {
+                                                    color: "#FFFFFF", // Màu viền trắng
+                                                    width: 1 // Độ rộng viền
+                                                }
+                                            },
+                                            popupTemplate: `
 									  <b>Tên:</b> Bảo tàng HCM<br>
 									  <b>Địa điểm:</b> Phường Bến Thành, Quận 1, Hồ Chí Minh, Việt Nam
 									`
-								  }
-								];
-							
-								// Thêm các vùng đa giác lên bản đồ
-								polygons.forEach(polygon => {
-								  const latLngs = polygon.rings.map(([lng, lat]) => [lat, lng]); // Chuyển đổi tọa độ
-							
-								  // Tạo vùng đa giác với Leaflet
-								  const layer = L.polygon(latLngs, {
-									color: polygon.symbol.outline.color,
-									weight: polygon.symbol.outline.width,
-									fillColor: polygon.symbol.color,
-									fillOpacity: 1
-								  });
-							
-								  // Thêm pop-up cho vùng
-								  layer.bindPopup(polygon.popupTemplate);
-							
-								  // Thêm vùng đa giác vào bản đồ
-								  layer.addTo(map);
-								});
-							
-							
-							  </script> 
-						</div>
-					</div>
+                                        }
+                                    ];
 
-				</div>
-			</main>
+                                    // Thêm các vùng đa giác lên bản đồ
+                                    polygons.forEach(polygon => {
+                                        const latLngs = polygon
+                                            .rings
+                                            .map(([lng, lat]) => [lat, lng]); // Chuyển đổi tọa độ
 
-			<footer class="footer">
-				<div class="container-fluid">
-					<div class="row text-muted">
-						<div class="col-6 text-start">
-							<p class="mb-0">
-								<a class="text-muted">
-									<strong>Đồ án</strong>
-								</a>
-								-
-								<a class="text-muted">
-									<strong>Hệ thống thông tin địa lý ba chiều</strong>
-								</a>
-								&copy;
-							</p>
-						</div>
-						<div class="col-6 text-end">
-							<a class="text-muted">
-								<strong>Ứng dụng quản lý tour cho công ty du lịch (2D)</strong>
-							</a>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</div>
-	</div>
+                                        // Tạo vùng đa giác với Leaflet
+                                        const layer = L.polygon(latLngs, {
+                                            color: polygon.symbol.outline.color,
+                                            weight: polygon.symbol.outline.width,
+                                            fillColor: polygon.symbol.color,
+                                            fillOpacity: 1
+                                        });
 
-	<script src="js/app.js"></script>
+                                        // Thêm pop-up cho vùng
+                                        layer.bindPopup(polygon.popupTemplate);
 
-	<script>
-	
-	</script>
+                                        // Thêm vùng đa giác vào bản đồ
+                                        layer.addTo(map);
+                                    });
+                                </script>
+                            </div>
+                        </div>
 
-	
+                    </div>
+                </main>
 
-</body>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row text-muted">
+                            <div class="col-6 text-start">
+                                <p class="mb-0">
+                                    <a class="text-muted">
+                                        <strong>Đồ án</strong>
+                                    </a>
+                                    -
+                                    <a class="text-muted">
+                                        <strong>Hệ thống thông tin địa lý ba chiều</strong>
+                                    </a>
+                                    &copy;
+                                </p>
+                            </div>
+                            <div class="col-6 text-end">
+                                <a class="text-muted">
+                                    <strong>Ứng dụng quản lý tour cho công ty du lịch (2D)</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <script src="js/app.js"></script>
+
+        <script></script>
+
+    </body>
 
 </html>
