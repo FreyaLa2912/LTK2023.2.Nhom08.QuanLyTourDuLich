@@ -1,7 +1,6 @@
 package com.example.QuanLyTourDuLich.service.impl;
 
 import com.example.QuanLyTourDuLich.entity.DatTour;
-import com.example.QuanLyTourDuLich.entity.Tour_Turn;
 import com.example.QuanLyTourDuLich.repository.DatTourRepository;
 import com.example.QuanLyTourDuLich.service.DatTourService;
 

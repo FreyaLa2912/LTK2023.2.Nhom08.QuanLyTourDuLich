@@ -2,7 +2,6 @@ package com.example.QuanLyTourDuLich.service.impl;
 
 import com.example.QuanLyTourDuLich.entity.LichTrinhTour;
 import com.example.QuanLyTourDuLich.entity.Tour;
-import com.example.QuanLyTourDuLich.repository.LichTrinhTourRepository;
 import com.example.QuanLyTourDuLich.repository.TourRepository;
 import com.example.QuanLyTourDuLich.service.TourService;
 

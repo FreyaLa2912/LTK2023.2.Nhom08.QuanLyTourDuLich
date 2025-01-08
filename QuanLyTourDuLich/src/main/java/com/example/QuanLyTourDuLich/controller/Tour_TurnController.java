@@ -1,6 +1,5 @@
 package com.example.QuanLyTourDuLich.controller;
 
-import com.example.QuanLyTourDuLich.entity.LichTrinhTour;
 import com.example.QuanLyTourDuLich.entity.Tour_Turn;
 import com.example.QuanLyTourDuLich.service.Tour_TurnService;
 

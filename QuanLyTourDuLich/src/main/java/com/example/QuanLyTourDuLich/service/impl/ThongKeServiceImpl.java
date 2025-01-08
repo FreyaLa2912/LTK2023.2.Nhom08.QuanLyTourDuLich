@@ -2,8 +2,6 @@ package com.example.QuanLyTourDuLich.service.impl;
 
 import com.example.QuanLyTourDuLich.dto.BieuDoDto;
 import com.example.QuanLyTourDuLich.dto.ThongKeDto;
-import com.example.QuanLyTourDuLich.dto.TopTourDto;
-import com.example.QuanLyTourDuLich.entity.DatTour;
 import com.example.QuanLyTourDuLich.repository.DatTourRepository;
 import com.example.QuanLyTourDuLich.repository.DiaDiemRepository;
 import com.example.QuanLyTourDuLich.repository.TourRepository;
