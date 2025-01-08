@@ -16,11 +16,14 @@ public interface TourRepository extends JpaRepository<Tour, Integer> {
     // Có thể thêm các phương thức truy vấn ở đây nếu cần, 
     // ví dụ tìm kiếm theo tên tour, địa điểm, ...
     
+    @SuppressWarnings("null")
     @EntityGraph(attributePaths = {"diaDiem"})
     List<Tour> findAll();
 
     @Query("SELECT t FROM Tour t JOIN FETCH t.diaDiem")
     List<Tour> findAllToursWithDiaDiem();
+
+    
 
     
     

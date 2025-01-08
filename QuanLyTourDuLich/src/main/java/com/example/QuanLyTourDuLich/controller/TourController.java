@@ -1,6 +1,8 @@
 package com.example.QuanLyTourDuLich.controller;
 
+import com.example.QuanLyTourDuLich.entity.LichTrinhTour;
 import com.example.QuanLyTourDuLich.entity.Tour;
+import com.example.QuanLyTourDuLich.service.LichTrinhTourService;
 import com.example.QuanLyTourDuLich.service.TourService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ public class TourController {
 
     @Autowired
     private TourService tourService;
+    @Autowired
+    private LichTrinhTourService lichTrinhTourService; 
 
     @GetMapping
     public ResponseEntity<List<Tour>> getAllTours() {
@@ -53,6 +57,19 @@ public class TourController {
     public ResponseEntity<Void> deleteTour(@PathVariable int maTour) {
         tourService.deleteTour(maTour);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    // Trong TourController.java
+
+    @GetMapping("/{maTour}/lichtrinhtours")
+    public ResponseEntity<List<LichTrinhTour>> getLichTrinhToursByMaTour(@PathVariable int maTour) {
+        try {
+            List<LichTrinhTour> lichTrinhTours = lichTrinhTourService.getLichTrinhToursByMaTour(maTour);
+            return new ResponseEntity<>(lichTrinhTours, HttpStatus.OK);
+        } catch (Exception e) {
+            // Xử lý exception (ví dụ: log lỗi, trả về thông báo lỗi cụ thể)
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
 

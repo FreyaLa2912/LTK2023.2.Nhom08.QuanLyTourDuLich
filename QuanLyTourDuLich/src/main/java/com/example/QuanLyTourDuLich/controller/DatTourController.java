@@ -21,10 +21,10 @@ public class DatTourController {
     private DatTourService datTourService;
 
     @Autowired
-    private Tour_TurnService tour_turnService; // Inject Tour_TurnService
+    private Tour_TurnService tour_turnService; 
 
     @Autowired
-    private NguoiDungService nguoiDungService; // Inject NguoiDungService
+    private NguoiDungService nguoiDungService; 
 
     @GetMapping
     public ResponseEntity<List<DatTour>> getAllDatTours() {
@@ -120,9 +120,8 @@ public class DatTourController {
     }
 
     // API lấy danh sách turn của tour
-    @GetMapping("/{maTour}/turns")
+    @GetMapping("/tours/{maTour}/turns") // Sửa đường dẫn
     public ResponseEntity<List<Integer>> getTurnsByMaTour(@PathVariable int maTour) {
-        // Lấy danh sách turn từ Tour_TurnService 
         List<Integer> turns = tour_turnService.getTurnsByMaTour(maTour);
         return new ResponseEntity<>(turns, HttpStatus.OK);
     }

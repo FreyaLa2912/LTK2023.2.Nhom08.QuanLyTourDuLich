@@ -1,5 +1,6 @@
 package com.example.QuanLyTourDuLich.controller;
 
+import com.example.QuanLyTourDuLich.entity.LichTrinhTour;
 import com.example.QuanLyTourDuLich.entity.Tour_Turn;
 import com.example.QuanLyTourDuLich.service.Tour_TurnService;
 
@@ -78,4 +79,6 @@ public class Tour_TurnController {
         List<Integer> turns = tour_turnService.getTurnsByMaTour(maTour);
         return new ResponseEntity<>(turns, HttpStatus.OK);
     }
+
+    
 }

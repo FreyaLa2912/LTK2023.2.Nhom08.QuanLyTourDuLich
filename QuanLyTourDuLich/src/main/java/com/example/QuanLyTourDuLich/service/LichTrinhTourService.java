@@ -10,5 +10,6 @@ public interface LichTrinhTourService {
     LichTrinhTour createLichTrinhTour(LichTrinhTour lichTrinhTour);
     LichTrinhTour updateLichTrinhTour(int maTour, int thuTuThamQuan, LichTrinhTour lichTrinhTour);
     void deleteLichTrinhTour(int maTour, int thuTuThamQuan);
+    List<LichTrinhTour> getLichTrinhToursByMaTour(int maTour);
     // Các phương thức khác cho nghiệp vụ liên quan đến LichTrinhTour (nếu cần)
 }

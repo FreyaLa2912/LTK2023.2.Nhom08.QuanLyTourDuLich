@@ -16,7 +16,7 @@ public class DiaDiem {
     @Column(name = "MoTa")
     private String moTa;
 
-    @Column(name = "ToaDo", columnDefinition = "geometry", nullable = false)
+    @Column(name = "ToaDo", nullable = false)
     private String toaDo;
 
     @Column(name = "HinhAnh")
