@@ -8,15 +8,16 @@ public class LichTrinhTour {
     @EmbeddedId
     private LichTrinhTourId id;
 
+
     @ManyToOne
     @MapsId("maTour")
     @JoinColumn(name = "MaTour")
     private Tour tour;
 
-    @Column(name = "MaDiaDiem", nullable = false) // Thay đổi ở đây
+    @Column(name = "MaDiaDiem", nullable = false, insertable = false, updatable = false) // Thay đổi ở đây
     private int maDiaDiem;
 
-    @Column(name = "ThuTuThamQuan", insertable = false, updatable = false) // Thay đổi ở đây
+    @Column(name = "ThuTuThamQuan", nullable = false, insertable = false, updatable = false) // Thay đổi ở đây
     private int thuTuThamQuan;
 
     @Column(name = "ThuTuNgay", nullable = false)
@@ -49,6 +50,7 @@ public class LichTrinhTour {
     public LichTrinhTourId getId() {
         return id;
     }
+    
 
     public void setId(LichTrinhTourId id) {
         this.id = id;
@@ -110,6 +112,7 @@ public class LichTrinhTour {
         this.moTa = moTa;
     }
 
+    
     
     // Constructor, getter và setter
 }

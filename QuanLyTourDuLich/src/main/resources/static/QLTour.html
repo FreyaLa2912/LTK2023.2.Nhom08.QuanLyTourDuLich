@@ -20,7 +20,7 @@
 
         <link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html"/>
 
-        <title>Blank Page | AdminKit Demo</title>
+        <title>Quản lý Tour | Lịch trình</title>
 
         <link href="css/app.css" rel="stylesheet">
         <link
@@ -146,6 +146,19 @@
                         </div>
                     </div>
 
+                    <h1 class="h3 mb-3">Lịch trình Tour</h1>
+
+                    <div class="row ">
+                      <div class="col-12">
+                          <div class="card">
+                              
+                              <div class="card-body">
+                                  <div id="lichTrinhContainer"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
                 </div>
             </main>
 
@@ -204,6 +217,35 @@
                 </td>
             `;
                     tbody.appendChild(row);
+
+                    // Gọi API để lấy lịch trình của tour
+          fetch(`http://localhost:8080/api/tours/${tour.maTour}/lichtrinhtours`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Lỗi khi lấy danh sách lịch trình tour');
+    }
+    return response.json();
+  })
+  .then(lichTrinhTours => {
+    if (!Array.isArray(lichTrinhTours)) {
+      throw new Error('Dữ liệu lịch trình tour không hợp lệ');
+    }
+
+    const lichTrinhDiv = document.createElement('div');
+    lichTrinhDiv.innerHTML = `
+                <h3>Lịch trình cho tour: ${tour.tenTour}</h3>
+                <ul>
+                ${lichTrinhTours.map(lichTrinh => {
+                  // Kiểm tra lichTrinh.diaDiem trước khi truy cập tenDiaDiem
+                  return `<li>${lichTrinh.moTa} </li>`;
+                }).join('')}
+                </ul>
+            `;
+    document.getElementById('lichTrinhContainer').appendChild(lichTrinhDiv);
+  })
+  .catch(error => {
+    console.error("Lỗi khi lấy lịch trình tour:", error);
+  });
                 });
 
                 // Thêm sự kiện click cho nút "Sửa"
@@ -242,12 +284,16 @@
                                 });
                         }
                     });
+                    
                 });
             })
             .catch(error => {
                 console.error('Lỗi khi lấy danh sách tour:', error);
                 alert('Không thể lấy danh sách tour. Vui lòng thử lại sau!');
             });
+    </script>
+    <script>
+      
     </script>
 
 </body>

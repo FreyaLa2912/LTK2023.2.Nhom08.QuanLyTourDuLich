@@ -19,8 +19,6 @@ public class DiaDiem {
     @Column(name = "ToaDo", nullable = false)
     private String toaDo;
 
-    @Column(name = "HinhAnh")
-    private String hinhAnh;
 
     @Column(name = "ThanhPho")
     private String thanhPho;
@@ -32,11 +30,11 @@ public class DiaDiem {
     public DiaDiem() {
     }
 
-    public DiaDiem(String tenDiaDiem, String moTa, String toaDo, String hinhAnh, String thanhPho, String tinh) {
+    public DiaDiem(Long maDiaDiem, String tenDiaDiem, String moTa, String toaDo, String thanhPho, String tinh) {
+        this.maDiaDiem = maDiaDiem;
         this.tenDiaDiem = tenDiaDiem;
         this.moTa = moTa;
         this.toaDo = toaDo;
-        this.hinhAnh = hinhAnh;
         this.thanhPho = thanhPho;
         this.tinh = tinh;
     }
@@ -73,14 +71,6 @@ public class DiaDiem {
         this.toaDo = toaDo;
     }
 
-    public String getHinhAnh() {
-        return hinhAnh;
-    }
-
-    public void setHinhAnh(String hinhAnh) {
-        this.hinhAnh = hinhAnh;
-    }
-
     public String getThanhPho() {
         return thanhPho;
     }
@@ -97,5 +87,6 @@ public class DiaDiem {
         this.tinh = tinh;
     }
 
+    
     
 }
